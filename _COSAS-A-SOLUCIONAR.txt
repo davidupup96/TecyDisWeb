@@ -1,0 +1,8 @@
+LOS MENSAJES PRIVADOS NO LLEGAN. EL recipiente es NULL.se transformara algo mal por ahi.
+
+Para poder enviar ofertas hay que darle a los botones:
+-Encender video local y despues
+-Crear conexión.
+
+Una vez hecho eso en los dos, al enviar la primera oferta me la rechaza directamente , pero si envio una desde el que la pprimera vez fue recibidor, si sale la alerta para rechazar o aceptar. La he aceptado y funciona correctamente.
+Habrá que ver porque la primera peticion no funciona y la segunda si.
