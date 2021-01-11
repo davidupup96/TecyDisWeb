@@ -37,7 +37,14 @@ class Chat {
 				self.mensajesRecibidos.push(mensaje);
 			} else if (data.type == "ARRIVAL") {
 				var usuario = new Usuario(data.userName, data.picture);
-				self.usuarios.push(usuario);
+				for(var i=0; i<self.usuarios().length; i++){
+					if(self.usuarios()[i].nombre == usuario.nombre){
+						break
+					}else if (i == self.usuarios().length -1){
+						self.usuarios.push(usuario);
+					}
+				}
+
 			} else if (data.type == "BYE") {
 				var userName = data.userName;
 				for (var i=0; i<self.usuarios().length; i++) {
@@ -104,7 +111,10 @@ class Chat {
 	}
 	
 	addUsuario(userName, picture) {
+
 		this.usuarios.push(new Usuario(userName, picture));
+			
+		
 	}
 }
 	

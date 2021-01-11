@@ -19,8 +19,11 @@ public class User {
 	private String pwd;
 	private String picture;
 	@Transient 
-	private WebSocketSession session;
+	private WebSocketSession sessionTexto;
+	@Transient 
+	private WebSocketSession sessionVideo;
 	private Long confirmationDate;
+
 	
 	public User() {
 		this.id = UUID.randomUUID().toString();
@@ -67,14 +70,6 @@ public class User {
 		this.picture = picture;
 	}
 
-	public void setSession(WebSocketSession session) {
-		this.session = session;
-	}
-	
-	@JsonIgnore
-	public WebSocketSession getSession() {
-		return session;
-	}
 
 	public void setConfirmationDate(Long date) {
 		this.confirmationDate = date;
@@ -83,4 +78,24 @@ public class User {
 	public Long getSetConfirmationDate() {
 		return confirmationDate;
 	}
+
+	@JsonIgnore
+	public WebSocketSession getSessionTexto() {
+		return sessionTexto;
+	}
+
+	public void setSessionTexto(WebSocketSession sessionTexto) {
+		this.sessionTexto = sessionTexto;
+	}
+	@JsonIgnore
+	public WebSocketSession getSessionVideo() {
+		return sessionVideo;
+	}
+
+	public void setSessionVideo(WebSocketSession sessionVideo) {
+		this.sessionVideo = sessionVideo;
+	}
+
+
+
 }
