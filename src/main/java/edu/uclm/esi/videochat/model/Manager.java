@@ -17,6 +17,7 @@ public class Manager {
 	
 	private ConcurrentHashMap<String, User> usersMap;
 	private ConcurrentHashMap<String, HttpSession> sessions;
+	private ConcurrentHashMap<String, Message> messageMap;
 	
 	@Autowired
 	private MessageRepository messageRepo;
@@ -28,6 +29,7 @@ public class Manager {
 	private Manager() {
 		this.usersMap = new ConcurrentHashMap<>();
 		this.sessions = new ConcurrentHashMap<>();
+		this.messageMap= new ConcurrentHashMap<>();
 	}
 	
 	private static class ManagerHolder {
@@ -63,6 +65,11 @@ public class Manager {
 		}
 		return users;
 	}
+	
+	
+	
+	
+	
 
 	public HttpSession getSession(String sessionId) {
 		return this.sessions.get(sessionId);

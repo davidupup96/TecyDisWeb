@@ -116,5 +116,15 @@ class Chat {
 			
 		
 	}
+	
+	addMensaje(mensaje, hora) {
+
+		this.mensaje.push(new Mensaje(mensaje, hora));		
+		
+	}
+	
+	recuperar(mensaje) {
+		this.chat.send(JSON.stringify(mensaje));
+	}
 }
 	

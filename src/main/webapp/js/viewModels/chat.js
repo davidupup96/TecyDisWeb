@@ -49,6 +49,12 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 			$.ajax(data);
 		}
 		
+		
+		
+		
+	
+		
+		
 		self.encenderVideoLocal = function() {
 			self.videoChat().encenderVideoLocal();
 		}

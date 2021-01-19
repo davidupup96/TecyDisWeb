@@ -12,7 +12,7 @@ public class Message {
 	private String sender;
 	private String recipient;
 	private String message;
-	private long date;
+	private String date;
 
 
 	public Message () {
@@ -53,12 +53,12 @@ public class Message {
 		this.message = message;
 	}
 
-	public long getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(long date) {
-		this.date = date;
+	public void setDate(String string) {
+		this.date = string;
 	}
 
 	

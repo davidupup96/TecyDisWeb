@@ -52,6 +52,8 @@ public class WebSocketTexto extends WebSocketVideoChat {
 			Message mensaje = new Message();
 			mensaje.setMessage(jso.getString("message"));
 			mensaje.setSender(enviador);
+			mensaje.setRecipient("BROADCAST");
+			mensaje.setDate(formatDate(System.currentTimeMillis()));
 			guardarMensaje(mensaje);
 		} else if (type.equals("PARTICULAR")) {
 			String destinatario = jso.getString("destinatario");
@@ -66,6 +68,8 @@ public class WebSocketTexto extends WebSocketVideoChat {
 			Message mensaje = new Message();
 			mensaje.setMessage(jso.getString("texto"));
 			mensaje.setSender(enviador);
+			mensaje.setRecipient(destinatario);
+			mensaje.setDate(formatDate(System.currentTimeMillis()));
 			guardarMensaje(mensaje);
 		}
 	}

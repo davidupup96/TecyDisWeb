@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.uclm.esi.videochat.model.Email;
 import edu.uclm.esi.videochat.model.Manager;
+import edu.uclm.esi.videochat.model.Message;
 import edu.uclm.esi.videochat.model.Token;
 import edu.uclm.esi.videochat.model.User;
 import edu.uclm.esi.videochat.springdao.TokenRepository;
@@ -118,4 +119,6 @@ public class UsersController {
 	public List<User> getUsuariosConectados() {
 		return Manager.get().getUsuariosConectados();
 	}
+	
 }
+
