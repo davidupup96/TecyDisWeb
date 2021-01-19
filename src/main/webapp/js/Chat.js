@@ -117,14 +117,14 @@ class Chat {
 		
 	}
 	
+	
 	addMensaje(mensaje, hora) {
-
+		
+		
 		this.mensajesRecibidos.push(new Mensaje(mensaje, hora));		
 		
 	}
 	
-	recuperar(mensaje) {
-		this.chat.send(JSON.stringify(mensaje));
-	}
 }
+
 	
