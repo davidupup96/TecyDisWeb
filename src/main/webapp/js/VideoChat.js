@@ -32,6 +32,10 @@ class VideoChat {
 
 		this.ws.onmessage = function(event) {
 			var data = JSON.parse(event.data);
+			if (data.type=="RECHAZO") {
+				self.addMensaje("La oferta ha sido rechazada");
+				window.alert("La llamada fue rechazada");
+			}
 			if (data.type=="OFFER") {
 				self.anunciarLlamada(data.remitente, data.sessionDescription);
 				return;
@@ -58,6 +62,7 @@ class VideoChat {
 	
 	anunciarLlamada(remitente, sessionDescription) {
 		this.addMensaje("Se recibe llamada de " + remitente + " con su sessionDescription", "black");
+		window.focus();
 		let aceptar = window.confirm("Te llama " + remitente + ". ¿Contestar?\n");
 		if (aceptar)
 			this.aceptarLlamada(remitente, sessionDescription);
@@ -106,8 +111,14 @@ class VideoChat {
 	}
 	
 	rechazarLlamada(remitente, sessionDescription) {
+		let self = this;
 		this.addMensaje("Llamada de " + remitente + " rechazada");
-		this.addMensaje("Implementar función rechazarLlamada", "red");
+		let msg = {
+					type : "RECHAZO",
+					sessionDescription : sessionDescription,
+					recipient : remitente
+				};
+				self.ws.send(JSON.stringify(msg));
 	}
 	
 	encenderVideoLocal() {
