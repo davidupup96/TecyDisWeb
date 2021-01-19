@@ -77,6 +77,8 @@ public class WebSocketTexto extends WebSocketVideoChat {
 	private void guardarMensaje(Message mensaje) {
 		Manager.get().getMessageRepo().save(mensaje);	
 	}
+	
+	
 
 	@Override
 	protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {

@@ -50,7 +50,35 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 		}
 		
 		
-		
+		self.getConversacion= function (destinatario) {
+			
+			var info = {
+					recipiente : this.user._latestValue.name,
+					destinatario : destinatario.nombre
+				}
+			
+			var data = {	
+				data : JSON.stringify(info),
+				url : "users/Conversacion", 
+				type : "post",
+				contentType : 'application/json',
+				success : function(response) {
+					for (var i=0; i<response.length; i++) {
+						if(i==0){
+							self.chat().addMensaje("Mensajes antiguos", "Hora");
+						}
+						var hora=response[i].date;
+						var mensaje = response[i].message;
+						self.chat().addMensaje(mensaje, hora);
+						if(i==response.length){
+							self.chat().addMensaje("Fin de mensajes antiguos", "Hora");
+						}
+					}
+				},
+				
+			};
+			$.ajax(data);
+		}
 		
 	
 		

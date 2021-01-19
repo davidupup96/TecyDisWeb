@@ -1,6 +1,7 @@
 package edu.uclm.esi.videochat.http;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ import edu.uclm.esi.videochat.model.Manager;
 import edu.uclm.esi.videochat.model.Message;
 import edu.uclm.esi.videochat.model.Token;
 import edu.uclm.esi.videochat.model.User;
+import edu.uclm.esi.videochat.springdao.MessageRepository;
 import edu.uclm.esi.videochat.springdao.TokenRepository;
 import edu.uclm.esi.videochat.springdao.UserRepository;
 
@@ -37,6 +39,8 @@ public class UsersController {
 	private UserRepository userRepo;
 	@Autowired
 	private TokenRepository tokenRepo;
+	@Autowired
+	private MessageRepository messageRepo;
 	
 	@PostMapping(value = "/login")
 	public User login(HttpServletRequest request, @RequestBody Map<String, Object> credenciales) throws Exception {
@@ -120,5 +124,12 @@ public class UsersController {
 		return Manager.get().getUsuariosConectados();
 	}
 	
+	@PostMapping(value = "/Conversacion", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Message> getConversacion(HttpServletRequest request, @RequestBody Map<String, Object> credenciales) {
+		JSONObject jso = new JSONObject(credenciales);
+		String recipient = jso.getString("recipiente");
+		String sender = jso.getString("destinatario");
+		return Manager.get().getConversacion(recipient,sender);
+	}
 }
 

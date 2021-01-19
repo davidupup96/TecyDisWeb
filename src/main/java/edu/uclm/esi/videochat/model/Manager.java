@@ -1,6 +1,7 @@
 package edu.uclm.esi.videochat.model;
 
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -67,7 +68,14 @@ public class Manager {
 	}
 	
 	
-	
+	public Vector<Message> getConversacion(String recipient, String sender) {
+
+
+		Vector<Message> eM = this.messageRepo.findByRecipiente(recipient,sender);
+
+		
+		return eM;
+	}
 	
 	
 

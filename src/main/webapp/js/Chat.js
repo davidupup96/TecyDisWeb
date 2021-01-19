@@ -119,7 +119,7 @@ class Chat {
 	
 	addMensaje(mensaje, hora) {
 
-		this.mensaje.push(new Mensaje(mensaje, hora));		
+		this.mensajesRecibidos.push(new Mensaje(mensaje, hora));		
 		
 	}
 	
