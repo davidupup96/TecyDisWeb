@@ -70,7 +70,7 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 						var hora=response[i].date;
 						var mensaje = response[i].message;
 						self.chat().addMensaje(mensaje, hora);
-						if(i==response.length){
+						if(i==response.length-1){
 							self.chat().addMensaje("Fin de mensajes antiguos", "Hora");
 						}
 					}

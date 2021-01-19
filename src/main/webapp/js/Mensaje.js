@@ -1,6 +1,6 @@
 class Mensaje {
 	constructor(texto, hora) {
 		this.texto = texto;
-		this.hora = hora ? hora : new Date().split;
+		this.hora = hora ? hora : new Date();
 	}
 }
