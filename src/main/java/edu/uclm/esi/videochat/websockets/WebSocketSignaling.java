@@ -50,6 +50,11 @@ public class WebSocketSignaling extends WebSocketVideoChat {
 			this.send(videoRoom.getA(), "type", "RECHAZO", "sessionDescription", jso.get("sessionDescription"));
 			return;
 		}
+		if (type.equals("ACEPTACION")) {
+			VideoRoom videoRoom = this.videoRooms.get("1");
+			this.send(videoRoom.getA(), "type", "ACEPTACION", "sessionDescription", jso.get("sessionDescription"));
+			return;
+		}
 		if (type.equals("ANSWER")) {
 			VideoRoom videoRoom = this.videoRooms.get("1");
 			this.send(videoRoom.getA(), "type", "ANSWER", "sessionDescription", jso.get("sessionDescription"));
