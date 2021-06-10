@@ -26,7 +26,8 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 		self.connected = function() {
 			accUtils.announce('Chat page loaded.');
 			document.title = "Chat";
-
+			
+			getUsuarios();
 			getUsuariosConectados();			
 		};
 
@@ -37,9 +38,12 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 				contentType : 'application/json',
 				success : function(response) {
 					for (var i=0; i<response.length; i++) {
-						var userName = response[i].name;
-						var picture = response[i].picture;
-						self.chat().addUsuario(userName, picture);
+						var user = { 
+							userName : response[i], 
+							picture : ko.observable("")
+						};
+						getPicture(user);
+						self.chat().addUsuarioAsync(user);
 					}
 				},
 				error : function(response) {
@@ -49,6 +53,45 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 			$.ajax(data);
 		}
 		
+		function getPicture(user) {
+			let nuevo = "";
+			var info ={ name : user.userName}
+			var data = {
+
+					url : "users/getPicture",
+					data : JSON.stringify(info),
+					type : "post",
+					contentType : 'application/json',
+					success : function(response) {
+						nuevo=response.picture;
+						user.picture(response.picture)
+					},
+					error : function(response) {
+						self.error(response.responseJSON.error);
+					}
+				};
+				$.ajax(data);
+		}
+		
+		function getUsuarios() {
+			var data = {	
+				url : "users/getUsuarios",
+				type : "get",
+				contentType : 'application/json',
+				success : function(response) {
+					for (var i=0; i<response.length; i++) {
+						var userName = response[i].name;
+						var picture = response[i].picture;
+						self.chat().addUsuarioRegistrado(userName, picture);
+					}
+					self.chat().addUsuarioRegistrado("All",null)
+				},
+				error : function(response) {
+					self.error(response.responseJSON.error);
+				}
+			};
+			$.ajax(data);
+		}
 		
 		self.getConversacion= function (destinatario) {
 			

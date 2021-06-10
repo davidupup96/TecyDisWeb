@@ -13,6 +13,8 @@ class Chat {
 		this.destinatario = ko.observable();
 		this.mensajeQueVoyAEnviar = ko.observable();
 		
+		this.listadoUsuarios = ko.observableArray([]);
+		
 		this.chat = new WebSocket("wss://" + window.location.host + "/wsTexto");
 		
 		this.chat.onopen = function() {
@@ -111,18 +113,19 @@ class Chat {
 	}
 	
 	addUsuario(userName, picture) {
-
-		this.usuarios.push(new Usuario(userName, picture));
-			
-		
+		this.usuarios.push(new Usuario(userName, picture));	
 	}
 	
+	addUsuarioAsync(user){
+		this.usuarios.push(new Usuario(user.userName, user.picture));
+	}
+	
+	addUsuarioRegistrado(userName, picture) {
+		this.listadoUsuarios.push(new Usuario(userName, picture));
+	}
 	
 	addMensaje(mensaje, hora) {
-		
-		
 		this.mensajesRecibidos.push(new Mensaje(mensaje, hora));		
-		
 	}
 	
 }

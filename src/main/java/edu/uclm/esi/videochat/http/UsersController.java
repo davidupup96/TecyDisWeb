@@ -122,7 +122,7 @@ public class UsersController {
 	}
 	
 	@GetMapping(value = "/getUsuariosConectados", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<User> getUsuariosConectados() {
+	public List<String> getUsuariosConectados() {
 		return Manager.get().getUsuariosConectados();
 	}
 	
@@ -141,5 +141,24 @@ public class UsersController {
 		Vector<Message> mensajes = messageRepo.findByRecipiente(recipient, sender);
 		messageRepo.deleteAll(mensajes);
 	}
+	
+	@GetMapping(value = "/getUsuarios", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<User> getUsuarios() {
+		return Manager.get().getUsuarios();
+	}
+	
+	@PostMapping(value="/getPicture", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String  getPicture(@RequestBody Map<String, Object> datos) {
+		JSONObject jso = new JSONObject(datos);
+		
+		String name = jso.getString("name");
+		
+		
+		JSONObject jsoResponse = new JSONObject();
+		jsoResponse.put("picture", Manager.get().getPicture(name));
+		return jsoResponse.toString();
+		
+	}
+	
 }
 
