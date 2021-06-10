@@ -80,6 +80,23 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 			$.ajax(data);
 		}
 		
+		self.deleteHistorial= function (destinatario) {
+			
+			var info = {
+					recipiente : this.user._latestValue.name,
+					destinatario : destinatario.nombre
+				}
+			
+			var data = {	
+				data : JSON.stringify(info),
+				url : "users/deleteHistorial", 
+				type : "delete",
+				contentType : 'application/json',
+				
+				
+			};
+			$.ajax(data);
+		}
 	
 		
 		

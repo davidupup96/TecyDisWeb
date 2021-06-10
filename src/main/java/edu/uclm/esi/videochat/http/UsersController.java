@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -130,6 +132,14 @@ public class UsersController {
 		String recipient = jso.getString("recipiente");
 		String sender = jso.getString("destinatario");
 		return Manager.get().getConversacion(recipient,sender);
+	}
+	@DeleteMapping(value = "/deleteHistorial", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void delHistorial(@RequestBody Map<String, Object> credenciales) {
+		JSONObject jso = new JSONObject(credenciales);
+		String recipient = jso.getString("recipiente");
+		String sender = jso.getString("destinatario");
+		Vector<Message> mensajes = messageRepo.findByRecipiente(recipient, sender);
+		messageRepo.deleteAll(mensajes);
 	}
 }
 

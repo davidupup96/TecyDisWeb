@@ -69,14 +69,10 @@ public class Manager {
 	
 	
 	public Vector<Message> getConversacion(String recipient, String sender) {
-
-
-		Vector<Message> eM = this.messageRepo.findByRecipiente(recipient,sender);
-
 		
+		Vector<Message> eM = this.messageRepo.findByRecipiente(recipient,sender);
 		return eM;
 	}
-	
 	
 
 	public HttpSession getSession(String sessionId) {
