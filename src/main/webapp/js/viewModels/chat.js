@@ -92,8 +92,9 @@ define(['knockout', 'appController', 'ojs/ojmodule-element-utils', 'accUtils'],
 				url : "users/deleteHistorial", 
 				type : "delete",
 				contentType : 'application/json',
-				
-				
+				success : function() {
+				window.alert("El historial fue borrado de la BD")
+				}
 			};
 			$.ajax(data);
 		}
