@@ -55,9 +55,9 @@ public class TestingVideoChat {
 		  
 		  @Before
 		  public void setUp() {
-			  System.setProperty("webdriver.chrome.driver", "C:\\Users\\Juan\\git\\TecyDisWeb\\selenium\\chromedriver.exe");
-			  System.setProperty("webdriver.gecko.driver", "C:\\Users\\Juan\\git\\TecyDisWeb\\selenium\\geckodriver.exe");
-			  System.setProperty("webdriver.edge.driver", "C:\\Users\\Juan\\git\\TecyDisWeb\\selenium\\msedgedriver.exe");
+			  System.setProperty("webdriver.chrome.driver", "C:\\Users\\David\\git\\TecyDisWeb\\selenium\\chromedriver.exe");
+			  System.setProperty("webdriver.gecko.driver", "C:\\Users\\David\\git\\TecyDisWeb\\selenium\\geckodriver.exe");
+			  System.setProperty("webdriver.edge.driver", "C:\\Users\\David\\git\\TecyDisWeb\\selenium\\msedgedriver.exe");
 			
 			
 			
@@ -111,7 +111,7 @@ public class TestingVideoChat {
 		    
 		    
 		    try {
-		  		Thread.sleep(5000);
+		  		Thread.sleep(30000);
 		  	} catch (InterruptedException e) {
 		  		// TODO Auto-generated catch block
 		  		e.printStackTrace();
@@ -144,7 +144,7 @@ public class TestingVideoChat {
 		    cajaEmailChrome.sendKeys("pepe@gmail.com");
 		    cajaPwdChrome.sendKeys("1234");
 		    cajaPwd2Chrome.sendKeys("1234");
-		    uploadPhotoChrome.sendKeys("C:\\Users\\Juan\\Pictures\\foto.jpg");
+		    uploadPhotoChrome.sendKeys("C:\\Users\\David\\Desktop\\IMPRESION\\Captura.jpg");
 		    
 		    
 		    WebElement botonChrome = chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div/button"));
@@ -159,7 +159,7 @@ public class TestingVideoChat {
 		    assertThat(chrome.switchTo().alert().getText(), is("Registrado correctamente"));
 		    firefox.get("https://localhost:7500");
 		    try {
-				Thread.sleep(5000);
+				Thread.sleep(20000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -188,7 +188,7 @@ public class TestingVideoChat {
 		    cajaEmailFirefox.sendKeys("ana@gmail.com");
 		    cajaPwdFirefox.sendKeys("1234");
 		    cajaPwd2Firefox.sendKeys("1234");
-		    uploadPhotoFirefox.sendKeys("C:\\Users\\Juan\\Pictures\\foto.jpg");
+		    uploadPhotoFirefox.sendKeys("C:\\Users\\David\\Desktop\\IMPRESION\\Captura.jpg");
 		    
 		    
 		   
@@ -236,7 +236,7 @@ public class TestingVideoChat {
 		    cajaEmailEdge.sendKeys("Lucas@gmail.com");
 		    cajaPwdEdge.sendKeys("1234");
 		    cajaPwd2Edge.sendKeys("1234");
-		    uploadPhotoEdge.sendKeys("C:\\Users\\Juan\\Pictures\\foto.jpg");
+		    uploadPhotoEdge.sendKeys("C:\\Users\\David\\Desktop\\IMPRESION\\Captura.jpg");
 		    
 		    
 		  
@@ -291,7 +291,7 @@ public class TestingVideoChat {
 			chrome.get("https://localhost:7500/");
 			  
 			 try {
-			  		Thread.sleep(2000);
+			  		Thread.sleep(20000);
 			  	} catch (InterruptedException e) {
 			  		// TODO Auto-generated catch block
 			  		e.printStackTrace();
@@ -302,6 +302,12 @@ public class TestingVideoChat {
 			 
 			
 		    chrome.findElement(By.cssSelector(".oj-hybrid-padding")).click();
+		    try {
+		  		Thread.sleep(1000);
+		  	} catch (InterruptedException e) {
+		  		// TODO Auto-generated catch block
+		  		e.printStackTrace();
+		  	};
 		    chrome.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).clear();
 		    chrome.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).sendKeys("Pepe");
 		    chrome.findElement(By.cssSelector(".oj-sm-12:nth-child(2) > input")).clear();
@@ -328,6 +334,12 @@ public class TestingVideoChat {
 		    
 		    
 		    firefox.findElement(By.cssSelector(".oj-hybrid-padding")).click();
+		    try {
+		  		Thread.sleep(1000);
+		  	} catch (InterruptedException e) {
+		  		// TODO Auto-generated catch block
+		  		e.printStackTrace();
+		  	};
 		    firefox.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).clear();
 		    firefox.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).sendKeys("Lucas");
 		    firefox.findElement(By.cssSelector(".oj-sm-12:nth-child(2) > input")).clear();
@@ -355,6 +367,12 @@ public class TestingVideoChat {
 		    
 		    
 		    edge.findElement(By.cssSelector(".oj-hybrid-padding")).click();
+		    try {
+		  		Thread.sleep(1000);
+		  	} catch (InterruptedException e) {
+		  		// TODO Auto-generated catch block
+		  		e.printStackTrace();
+		  	};
 		    edge.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).clear();
 		    edge.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).sendKeys("Ana");
 		    edge.findElement(By.cssSelector(".oj-sm-12:nth-child(2) > input")).clear();
@@ -385,8 +403,10 @@ public class TestingVideoChat {
 			  		// TODO Auto-generated catch block
 			  		e.printStackTrace();
 			  	}
-			  chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div[2]/button")).click();
-			  
+//			  chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div[2]/button")).click();
+			  chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[2]/button[1]")).click();
+			  chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[2]/button[2]")).click();
+			  chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div/button[1]")).click();
 			  try {
 			  		Thread.sleep(2000);
 			  	} catch (InterruptedException e) {
@@ -404,9 +424,9 @@ public class TestingVideoChat {
 		  }
 		  
 		  @Test
-		  @Order(10)
+		  @Order(4)
 		  public void testDaceptacionLlamada() {
-			  
+			 
 			 hacerLogin(chrome, "Ana", "1234");
 			 hacerLogin(firefox, "Lucas", "1234");
 			 
@@ -417,7 +437,10 @@ public class TestingVideoChat {
 			  		e.printStackTrace();
 			  	}
 			 
-			 chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div[2]/button")).click();
+//			 chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div[2]/button")).click();
+			 chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[2]/button[1]")).click();
+			 chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[2]/button[2]")).click();
+			 chrome.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div[3]/div[1]/div/button[1]")).click();
 			 try {
 			  		Thread.sleep(2000);
 			  	} catch (InterruptedException e) {
@@ -452,6 +475,12 @@ public class TestingVideoChat {
 
 			  driver.manage().window().setSize(new Dimension(900, 683));
 			  driver.findElement(By.cssSelector(".oj-hybrid-padding")).click();
+			  try {
+			  		Thread.sleep(2000);
+			  	} catch (InterruptedException e) {
+			  		// TODO Auto-generated catch block
+			  		e.printStackTrace();
+			  	}
 			  driver.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).clear();
 			  driver.findElement(By.cssSelector(".oj-sm-12:nth-child(1) > input")).sendKeys(nombre);
 			  driver.findElement(By.cssSelector(".oj-sm-12:nth-child(2) > input")).clear();
@@ -462,8 +491,9 @@ public class TestingVideoChat {
 			  		// TODO Auto-generated catch block
 			  		e.printStackTrace();
 			  	}
-			  driver.findElement(By.cssSelector("button")).click();
+			  //driver.findElement(By.cssSelector("button")).click();
 
+			  driver.findElement(By.xpath("/html/body/div/oj-module/div[1]/div[2]/div/div/div/div[1]/div[3]/button")).click();
 			  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 			  
